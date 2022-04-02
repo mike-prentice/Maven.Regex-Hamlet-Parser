@@ -23,9 +23,19 @@ public class HamletParserTest {
 
     @Test
     public void testFindHoratio() {
+        // Given
+
+        //When
+        HamletParser.findHoratio(hamletText);
+        System.out.println(hamletText);
+        //Then
     }
 
     @Test
     public void testFindHamlet() {
+        // Given
+        //When
+        HamletParser.findHamlet();
+        //Then
     }
 }
