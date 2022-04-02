@@ -17,32 +17,26 @@ public class HamletParserTest {
     }
 
     @Test
-    public void testChangeHamletToLeon() {
+    public void changeWholeDocumentTest() {
+        HamletParser.findAndChangeHamlet();
+        HamletParser.findAndChangeHoratio();
+        HamletParser.print();
     }
 
-    @Test
-    public void testChangeHoratioToTariq() throws IOException {
-        String expected;
-
-        String actual =HamletParser.changeHoratioToLeon();
-    }
 
     @Test
-    public void testFindHoratio() {
+    public void testFindAndChangeHoratio() {
         //Given
         //When
-        boolean actual = HamletParser.findHoratio(hamletText);
         //Then
-        Assert.assertTrue(actual);
+
     }
 
     @Test
-    public void testFindHamlet() {
-        // Given
-        String expected = "Found Hamlet";
+    public void testFindAndChangeHamlet() {
+        //Given
         //When
-        String actual = HamletParser.findHamlet(hamletText);
         //Then
-        Assert.assertEquals(expected, actual);
+
     }
 }

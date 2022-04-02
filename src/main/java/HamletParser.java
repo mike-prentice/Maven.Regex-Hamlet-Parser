@@ -12,9 +12,9 @@ import java.util.regex.Pattern;
 public class HamletParser {
 
     private static String hamletData;
-    static String hamletReg = "\\bHamlet\\b";
-    static String horatioReg = "\\bHoratio\\b";
-    String leon = "Leon";
+    static String hamletReg = "[H, h][A, a][M, m][L, l][E, e][T, t]";
+    static String horatioReg = "[H,h][O, o][R, r][A, a][T, t][I, i][O, o]";
+    static String leon = "Leon";
     static String tariq = "Tariq";
 
     public HamletParser(){
@@ -47,31 +47,23 @@ public class HamletParser {
         return hamletData;
     }
 
-    public static String findHamlet(String hamletText) {
-        String Success = "Found Hamlet";
+    public static String findAndChangeHamlet() {
         Pattern pattern = Pattern.compile(hamletReg);
         Matcher matcher = pattern.matcher(hamletData);
-        if (matcher.find()){
-            return Success;
-        }return "No Hamlet found";
+        hamletData = matcher.replaceAll(leon);
+        return hamletData;
     }
 
-    public static boolean findHoratio(String hamletData) {
-        String Success =  "Found Horatio";
+    public static String findAndChangeHoratio() {
         Pattern pattern = Pattern.compile(horatioReg);
         Matcher matcher = pattern.matcher(hamletData);
-       return matcher.find();
+        hamletData = matcher.replaceAll(tariq);
+       return hamletData;
 
     }
 
-    public static String changeHoratioToLeon() throws IOException {
-        BufferedReader reader = new BufferedReader(new StringReader(hamletData));
-        String line ="";
-        while((line = reader.readLine()) != null) {
-            if (findHoratio(hamletData)){
-
-            }
-        }
+    public static void print() {
+        System.out.println(hamletData);
     }
 
 }
