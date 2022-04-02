@@ -1,5 +1,8 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -18,24 +21,28 @@ public class HamletParserTest {
     }
 
     @Test
-    public void testChangeHoratioToTariq() {
+    public void testChangeHoratioToTariq() throws IOException {
+        String expected;
+
+        String actual =HamletParser.changeHoratioToLeon();
     }
 
     @Test
     public void testFindHoratio() {
-        // Given
-
+        //Given
         //When
-        HamletParser.findHoratio(hamletText);
-        System.out.println(hamletText);
+        boolean actual = HamletParser.findHoratio(hamletText);
         //Then
+        Assert.assertTrue(actual);
     }
 
     @Test
     public void testFindHamlet() {
         // Given
+        String expected = "Found Hamlet";
         //When
-        HamletParser.findHamlet();
+        String actual = HamletParser.findHamlet(hamletText);
         //Then
+        Assert.assertEquals(expected, actual);
     }
 }

@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,24 +47,32 @@ public class HamletParser {
         return hamletData;
     }
 
-    public static void findHamlet() {
+    public static String findHamlet(String hamletText) {
+        String Success = "Found Hamlet";
         Pattern pattern = Pattern.compile(hamletReg);
         Matcher matcher = pattern.matcher(hamletData);
         if (matcher.find()){
-            System.out.println("found hamlet");
-        }else{
-            System.out.println("no hamlet");
-        }
+            return Success;
+        }return "No Hamlet found";
     }
 
-    public static String findHoratio(String hamletData) {
+    public static boolean findHoratio(String hamletData) {
+        String Success =  "Found Horatio";
         Pattern pattern = Pattern.compile(horatioReg);
         Matcher matcher = pattern.matcher(hamletData);
-        if (matcher.find()){
-            System.out.println("found horatio");
-        }else{
-            System.out.println("no horatio");
+       return matcher.find();
+
+    }
+
+    public static String changeHoratioToLeon() throws IOException {
+        BufferedReader reader = new BufferedReader(new StringReader(hamletData));
+        String line ="";
+        while((line = reader.readLine()) != null) {
+            if (findHoratio(hamletData)){
+
+            }
         }
     }
 
 }
+
